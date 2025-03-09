@@ -1,0 +1,8 @@
+python-dotenv
+litellm
+rich
+ollama
+langchain-community
+langchain_neo4j
+rank_bm25
+pydantic>=2.0.0
