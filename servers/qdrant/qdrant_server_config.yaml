@@ -1,0 +1,15 @@
+service:
+  enable_tls: true
+  enable_cors: true
+  verify_https_client_certificate: false
+  api_key: ${QDRANT_API_KEY}
+  http_port: 6333
+  grpc_port: 6334
+  hardware_reporting: false
+
+tls:
+  cert: /qdrant/tls/fullchain.pem
+  key: /qdrant/tls/privkey.pem
+  ca_cert: /qdrant/tls/chain.pem
+
+telemetry_disabled: true
