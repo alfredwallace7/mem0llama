@@ -1,0 +1,20 @@
+services:
+  neo4j:
+    image: neo4j:5.26.4
+    container_name: neo4j
+    restart: unless-stopped
+    ports:
+      - "7474:7474"   # HTTP
+      - "7473:7473"   # HTTPS
+      - "7687:7687"   # Bolt
+    volumes:
+      - ./neo4j.conf:/conf/neo4j.conf
+      - ./apoc.conf:/conf/apoc.conf
+      - ${NEO4J_STORAGE}/plugins:/plugins
+      - ${NEO4J_STORAGE}/data:/data
+      - ${NEO4J_STORAGE}/logs:/logs
+      - ${NEO4J_STORAGE}/import:/import
+      - ${SSL_CERTS_PATH}:/ssl
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PWD}
+    command: ["neo4j"]
